@@ -47,6 +47,7 @@ public class BeerLoader implements CommandLineRunner {
                     .price(new BigDecimal(11.95))
                     .build());
             //with this we know that the bootstrap class is now functional
+            //TODO remove this sysout
             System.out.println("Loaded beers" + beerRepository.count());
         }
     }
