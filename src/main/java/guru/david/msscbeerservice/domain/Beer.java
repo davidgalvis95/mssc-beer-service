@@ -1,11 +1,9 @@
 package guru.david.msscbeerservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -20,13 +18,15 @@ import java.util.UUID;
 @AllArgsConstructor
 //this annotation is for marking this object as a JPA object
 @Entity
+@Builder
 public class Beer {
 
     //org.hibernate.id.UUIDGenerator
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
+    @Type(type="org.hibernate.type.UUIDCharType")
+    @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
     private UUID id;
     //the following is a feature from JPA javax, that allow us to manage hibernate with the version
     @Version
@@ -47,8 +47,8 @@ public class Beer {
     private BigDecimal price;
 
     //this one is to follow some other
-    private Integer minOnHand;
-    private Integer quantityToBrew;
+    private int minOnHand;
+    private int quantityToBrew;
 
 
 }
