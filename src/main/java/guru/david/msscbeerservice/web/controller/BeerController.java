@@ -4,8 +4,10 @@ package guru.david.msscbeerservice.web.controller;
 import guru.david.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RequestMapping
@@ -17,8 +19,10 @@ public class BeerController {
         //todo implementation
         return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
     }
+
+    //TODO search for the difference between @Validated and @Valid
     @PostMapping
-    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
+    public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto){
         //todo implementation
         return new ResponseEntity(HttpStatus.CREATED);
     }
