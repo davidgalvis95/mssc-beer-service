@@ -37,9 +37,9 @@ public class BeerDto {
     @NotNull
     private BeerStyleEnum beerStyle;
 
-    @Positive
-    @NotNull
-    private Long upc;
+    //@Positive
+    @NotBlank
+    private String upc;
 
     //this will change the type of the number to string
     @JsonFormat(shape = JsonFormat.Shape.STRING)

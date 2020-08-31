@@ -17,19 +17,19 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
     private final BeerMapper beerMapper;
     @Override
-    public BeerDto getById(UUID beerId) {
+    public BeerDto getBeerById(UUID beerId) {
         return beerMapper.BeerDtoToBeer(
                 beerRepository.findById(beerId).orElseThrow(NotFoundException::new)
         );
     }
 
-    @Override
-    public Object getByUpc(String upc) {
-        return null;
-    }
+//    @Override
+//    public Object getByUpc(String upc) {
+//        return null;
+//    }
 
     @Override
-    public Object saveNewBeer(BeerDto beerDto) {
+    public Object saveBeer(BeerDto beerDto) {
         return beerMapper.BeerDtoToBeer(beerRepository.save(beerMapper.BeerToBeerDto(beerDto)));
     }
 
@@ -44,8 +44,8 @@ public class BeerServiceImpl implements BeerService {
         return beerMapper.BeerDtoToBeer(beerRepository.save(beer));
     }
 
-    @Override
-    public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest of, Boolean showInventoryOnHand) {
-        return null;
-    }
+//    @Override
+//    public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest of, Boolean showInventoryOnHand) {
+//        return null;
+//    }
 }

@@ -50,14 +50,14 @@ public class BeerController {
 //        return new ResponseEntity<>(beerList, HttpStatus.OK);
 //    }
 
-    @GetMapping("beer/{beerId}")
+    @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
                                                //@RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
 //        if (showInventoryOnHand == null) {
 //            showInventoryOnHand = false;
 //        }
 
-        return new ResponseEntity<BeerDto>((BeerDto) beerService.getById(beerId), HttpStatus.OK);
+        return new ResponseEntity<BeerDto>((BeerDto) beerService.getBeerById(beerId), HttpStatus.OK);
     }
 
 //    @GetMapping("beerUpc/{upc}")
@@ -65,12 +65,12 @@ public class BeerController {
 //        return new ResponseEntity<>(beerService.getByUpc(upc), HttpStatus.OK);
 //    }
 
-    @PostMapping(path = "beer")
+    @PostMapping()
     public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto){
-        return new ResponseEntity<>(beerService.saveNewBeer(beerDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(beerService.saveBeer(beerDto), HttpStatus.CREATED);
     }
 
-    @PutMapping("beer/{beerId}")
+    @PutMapping("/{beerId}")
     public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId, @RequestBody @Validated BeerDto beerDto){
         return new ResponseEntity<>(beerService.updateBeer(beerId, beerDto), HttpStatus.NO_CONTENT);
     }
