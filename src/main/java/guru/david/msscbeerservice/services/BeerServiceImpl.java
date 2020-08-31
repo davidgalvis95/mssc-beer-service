@@ -9,8 +9,11 @@ import guru.david.msscbeerservice.web.model.BeerPagedList;
 import guru.david.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+
+@Service
 @RequiredArgsConstructor
 public class BeerServiceImpl implements BeerService {
 
