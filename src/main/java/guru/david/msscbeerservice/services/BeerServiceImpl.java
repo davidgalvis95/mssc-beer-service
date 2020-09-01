@@ -25,10 +25,16 @@ public class BeerServiceImpl implements BeerService {
     private final BeerMapper beerMapper;
 
     @Override
-    public BeerDto getBeerById(UUID beerId) {
+    public BeerDto getBeerById(UUID beerId, Boolean showInventoryOnHand) {
+        if(showInventoryOnHand){
+            //if enabled we ammend the inventory into the beerDto
+        return beerMapper.beerToBeerDtoWithInventory(
+                beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
+        }else{
+
         return beerMapper.beerToBeerDto(
-                beerRepository.findById(beerId).orElseThrow(NotFoundException::new)
-        );
+                beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
+        }
     }
 
 //    @Override
@@ -70,6 +76,8 @@ public class BeerServiceImpl implements BeerService {
             beerPage = beerRepository.findAll(pageRequest);
         }
 
+        //this is the new logic added so that it takes into account the boolean query parameter that is in charge of select if include or not tha inventory
+        //into the result, so if uses or not the implementation of the beer decorator o beer service...this query parameter is passed from controller
         if (showInventoryOnHand){
             beerPagedList = new BeerPagedList(beerPage
                                                     .getContent()

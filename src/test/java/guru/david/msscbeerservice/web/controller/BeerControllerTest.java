@@ -19,6 +19,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -40,7 +41,7 @@ class BeerControllerTest {
 
     @Test
     void getBeerById() throws Exception {
-        given(beerService.getBeerById(any())).willReturn(createBeerDto());
+        given(beerService.getBeerById(any(),anyBoolean())).willReturn(createBeerDto());
 
         mockMvc.perform(get("/api/v1/beer/"+ UUID.randomUUID().toString())
                 .accept(MediaType.APPLICATION_JSON))

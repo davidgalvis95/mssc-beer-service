@@ -40,6 +40,7 @@ public class BeerController {
                                                    @RequestParam(value = "beerStyle", required = false) BeerStyleEnum beerStyle,
                                                    @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
 
+        //this is the parameter that is passed as a boolean to include the inventory or not
         if (showInventoryOnHand == null) {
             showInventoryOnHand = false;
         }
@@ -58,13 +59,13 @@ public class BeerController {
     }
 
     @GetMapping("/{beerId}")
-    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
-                                               //@RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
-//        if (showInventoryOnHand == null) {
-//            showInventoryOnHand = false;
-//        }
+    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId,
+                                               @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
+        if (showInventoryOnHand == null) {
+            showInventoryOnHand = false;
+        }
 
-        return new ResponseEntity<BeerDto>((BeerDto) beerService.getBeerById(beerId), HttpStatus.OK);
+        return new ResponseEntity<BeerDto>((BeerDto) beerService.getBeerById(beerId,showInventoryOnHand), HttpStatus.OK);
     }
 
 //    @GetMapping("beerUpc/{upc}")

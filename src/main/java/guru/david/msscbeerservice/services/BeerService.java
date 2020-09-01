@@ -8,7 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import java.util.UUID;
 
 public interface BeerService {
-    Object getBeerById(UUID beerId);
+    Object getBeerById(UUID beerId, Boolean showInventoryOnHand);
 
     //Object getByUpc(String upc);
 
