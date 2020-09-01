@@ -17,4 +17,7 @@ public interface BeerService {
     Object updateBeer(UUID beerId, BeerDto beerDto);
 
     BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest of, Boolean showInventoryOnHand);
+
+    //this is the method to retrieve the beer by upc
+    Object getByUpc( String upc );
 }

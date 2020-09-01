@@ -25,6 +25,7 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
     private final BeerMapper beerMapper;
 
+    //this method explicitly uses the key that is specified to chache the beerDtos
     @Cacheable(cacheNames = "beerCache", key = "#beerId", condition = "#showInventoryOnHand == false ")
     @Override
     public BeerDto getBeerById(UUID beerId, Boolean showInventoryOnHand) {
@@ -62,6 +63,7 @@ public class BeerServiceImpl implements BeerService {
         return beerMapper.beerToBeerDto(beerRepository.save(beer));
     }
 
+    //this method does not explicitly specify the key, but can be specified by spring depending on the passed values
     @Cacheable( cacheNames = "beerListCache", condition = "#showInventoryOnHand == false ")
     @Override
     public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnHand) {
@@ -108,5 +110,14 @@ public class BeerServiceImpl implements BeerService {
         }
 
         return beerPagedList;
+    }
+
+    //this not specifies the key neither, but spring configures it, depending on the passed values
+    @Cacheable(cacheNames = "beerUpcCache")
+    @Override
+    public Object getByUpc( final String upc )
+    {
+        return beerMapper.beerToBeerDto(
+              beerRepository.findByUpc(upc));
     }
 }

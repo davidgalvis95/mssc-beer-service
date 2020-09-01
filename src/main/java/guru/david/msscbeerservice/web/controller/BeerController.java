@@ -33,7 +33,7 @@ public class BeerController {
 
     private final BeerService beerService;
 
-    @GetMapping(produces = { "application/json" }, path = "beer")
+    @GetMapping(produces = { "application/json" }, path = "/beer")
     public ResponseEntity<BeerPagedList> listBeers(@RequestParam( value = "pageNumber", required = false) Integer pageNumber,
                                                    @RequestParam(value = "pageSize", required = false) Integer pageSize,
                                                    @RequestParam(value = "beerName", required = false) String beerName,
@@ -68,10 +68,10 @@ public class BeerController {
         return new ResponseEntity<BeerDto>((BeerDto) beerService.getBeerById(beerId,showInventoryOnHand), HttpStatus.OK);
     }
 
-//    @GetMapping("beerUpc/{upc}")
-//    public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable("upc") String upc){
-//        return new ResponseEntity<>(beerService.getByUpc(upc), HttpStatus.OK);
-//    }
+    @GetMapping("/beerUpc/{upc}")
+    public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable("upc") String upc){
+        return new ResponseEntity<BeerDto>( (BeerDto) beerService.getByUpc( upc), HttpStatus.OK);
+    }
 
     @PostMapping()
     public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto){
