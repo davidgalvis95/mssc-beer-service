@@ -12,6 +12,8 @@ import java.util.List;
 
 public class BeerPagedList extends PageImpl<BeerDto> implements Serializable {
 
+    //while this is not needed in this case, because this list wont be processed in the cache, it's a best practice to do that
+    //by implementing serializable
     static final long serialVersionUID = 1114715135625836949L;
 
     //this is pretty useful to map pojo objects sometimes, the jsoncreator annotation takes care of it
