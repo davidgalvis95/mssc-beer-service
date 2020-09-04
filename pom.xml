@@ -3,49 +3,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<!--    <parent>-->
+<!--        <groupId>guru.springframework</groupId>-->
+<!--        <artifactId>mssc-brewery-bom</artifactId>-->
+<!--        <version>1.0-SNAPSHOT</version>-->
+<!--    </parent>   -->
     <parent>
-        <groupId>guru.springframework</groupId>
-        <artifactId>mssc-brewery-bom</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>com.github.sfg-beer-works</groupId>
+        <artifactId>sfg-brewery-bom</artifactId>
+        <version>1.0.3</version>
     </parent>
-
-    <groupId>guru.david</groupId>
+<!-- We dont need the artifact id anymore since we inherited from the  sfg-brewery-bom
+we do that in order to not override what we have done-->
+<!--    <groupId>guru.david</groupId>-->
     <artifactId>mssc-beer-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mssc-beer-service</name>
     <description>MSSC Beer Service</description>
 
-    <properties>
-        <spring-cloud.version>2.2.5.RELEASE</spring-cloud.version>
-    </properties>
-
     <dependencies>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>${jaxb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-core</artifactId>
-            <version>${jaxb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>${jaxb.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--            <version>${spring-cloud.version}</version>-->
-<!--        </dependency>-->
+
         <dependency>
             <groupId>javax.cache</groupId>
             <artifactId>cache-api</artifactId>
