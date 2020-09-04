@@ -42,11 +42,6 @@ public class BeerServiceImpl implements BeerService {
         }
     }
 
-//    @Override
-//    public Object getByUpc(String upc) {
-//        return null;
-//    }
-
     @Override
     public Object saveBeer(BeerDto beerDto) {
         return beerMapper.beerToBeerDto(beerRepository.save(beerMapper.beerDtoToBeer(beerDto)));
