@@ -36,6 +36,14 @@ we do that in order to not override what we have done-->
             <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>
+<!--        adding this dependency updated, fixed the issue loading the MySQL8Dialect
+            Overriding the 5.3 one with this 5.4.21-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.21.Final</version>
+        </dependency>
+
     </dependencies>
 
 </project>

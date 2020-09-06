@@ -27,6 +27,7 @@ public class Beer {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     //this is way to prevent that a hexadecimal and a string values will be combined, because the DB reads ir as a string
     @Type(type="org.hibernate.type.UUIDCharType")
+    //whenever a column is specified in mysql, we gotta specify the length
     @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
     private UUID id;
     //the following is a feature from JPA javax, that allow us to manage hibernate with the version
@@ -49,8 +50,8 @@ public class Beer {
     private BigDecimal price;
 
     //this one is to follow some other
-    private int minOnHand;
-    private int quantityToBrew;
+    private Integer minOnHand;
+    private Integer quantityToBrew;
 
 
 }
