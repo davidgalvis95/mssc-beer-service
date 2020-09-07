@@ -43,6 +43,10 @@ we do that in order to not override what we have done-->
             <artifactId>hibernate-core</artifactId>
             <version>5.4.21.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+        </dependency>
 
     </dependencies>
 
