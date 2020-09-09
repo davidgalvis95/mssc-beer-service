@@ -2,6 +2,7 @@ package guru.david.msscbeerservice.services.inventory;
 
 import guru.david.msscbeerservice.services.inventory.BeerInventoryService;
 import guru.david.msscbeerservice.bootstrap.BeerLoader;
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,7 @@ class BeerInventoryServiceRestTemplateImplTest {
     }
 
     @Test
+    @Ignore
     void getOnhandInventory() {
         Integer qoh = beerInventoryService.getOnhandInventory(BeerLoader.BEER_1_UUID);
 
