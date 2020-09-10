@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class BrewingService {
+public class BrewingServiceSender {
     private final BeerRepository beerRepository;
     private final BeerInventoryService beerInventoryService;
     private final JmsTemplate jmsTemplate;

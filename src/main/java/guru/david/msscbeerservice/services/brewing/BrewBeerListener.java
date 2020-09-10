@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
@@ -21,6 +22,9 @@ public class BrewBeerListener {
     private final BeerRepository beerRepository;
     private final JmsTemplate jmsTemplate;
 
+    @Transactional
+    //here we have to add the transactional annotation, since we are talking to the DB and we need to set up a session in hibernate, so if there is no annotation, we cannot track it
+    //The error was: Listener method 'public void guru.david.msscbeerservice.services.brewing.BrewBeerListener.listen(guru.david.msscbeerservice.events.BrewBeerEvent)' threw exception; nested exception is org.hibernate.LazyInitializationException: could not initialize proxy [guru.david.msscbeerservice.domain.Beer#e124de8c-1e8d-4764-b32a-87147c040399] - no Session
     @JmsListener( destination = JmsConfig.BREWING_REQUEST_QUEUE)
     public void listen( BrewBeerEvent event){
         BeerDto beerDto = event.getBeerDto();
