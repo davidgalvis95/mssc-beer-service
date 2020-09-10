@@ -11,7 +11,7 @@
     <parent>
         <groupId>com.github.sfg-beer-works</groupId>
         <artifactId>sfg-brewery-bom</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.10</version>
     </parent>
 <!-- We dont need the artifact id anymore since we inherited from the  sfg-brewery-bom
 we do that in order to not override what we have done-->
