@@ -15,6 +15,9 @@ public class JmsConfig
     //this is the queue that is going to send a new inventory request
     public static final String BREWING_REQUEST_QUEUE = "brewing-request";
 
+    public static final String NEW_INVENTORY_QUEUE = "new-inventory";
+
+
     @Bean // Serialize message content to json using TextMessage
     //public MessageConverter jacksonJmsMessageConverter( ObjectMapper objectMapper) {
     public MessageConverter jacksonJmsMessageConverter( ) {
