@@ -1,11 +1,10 @@
-package guru.david.msscbeerservice.events;
+package guru.sfg.brewery.model.events;
 
-import guru.david.msscbeerservice.web.model.BeerDto;
+import guru.sfg.brewery.model.BeerDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 

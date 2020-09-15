@@ -1,6 +1,6 @@
-package guru.david.msscbeerservice.events;
+package guru.sfg.brewery.model.events;
 
-import guru.david.msscbeerservice.web.model.BeerDto;
+import guru.sfg.brewery.model.BeerDto;
 import lombok.NoArgsConstructor;
 
 

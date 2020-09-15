@@ -2,10 +2,10 @@ package guru.david.msscbeerservice.services.brewing;
 
 import guru.david.msscbeerservice.config.JmsConfig;
 import guru.david.msscbeerservice.domain.Beer;
-import guru.david.msscbeerservice.events.BrewBeerEvent;
-import guru.david.msscbeerservice.events.NewInventoryEvent;
+import guru.sfg.brewery.model.events.BrewBeerEvent;
+import guru.sfg.brewery.model.events.NewInventoryEvent;
 import guru.david.msscbeerservice.repositories.BeerRepository;
-import guru.david.msscbeerservice.web.model.BeerDto;
+import guru.sfg.brewery.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
@@ -24,7 +24,7 @@ public class BrewBeerListener {
 
     @Transactional
     //here we have to add the transactional annotation, since we are talking to the DB and we need to set up a session in hibernate, so if there is no annotation, we cannot track it
-    //The error was: Listener method 'public void guru.david.msscbeerservice.services.brewing.BrewBeerListener.listen(guru.david.msscbeerservice.events.BrewBeerEvent)' threw exception; nested exception is org.hibernate.LazyInitializationException: could not initialize proxy [guru.david.msscbeerservice.domain.Beer#e124de8c-1e8d-4764-b32a-87147c040399] - no Session
+    //The error was: Listener method 'public void guru.david.msscbeerservice.services.brewing.BrewBeerListener.listen(guru.sfg.brewery.model.events.BrewBeerEvent)' threw exception; nested exception is org.hibernate.LazyInitializationException: could not initialize proxy [guru.david.msscbeerservice.domain.Beer#e124de8c-1e8d-4764-b32a-87147c040399] - no Session
     @JmsListener( destination = JmsConfig.BREWING_REQUEST_QUEUE)
     public void listen( BrewBeerEvent event){
         BeerDto beerDto = event.getBeerDto();

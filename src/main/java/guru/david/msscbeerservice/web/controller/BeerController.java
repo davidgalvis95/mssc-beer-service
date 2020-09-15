@@ -1,11 +1,10 @@
 package guru.david.msscbeerservice.web.controller;
 
 
-import guru.david.msscbeerservice.domain.Beer;
 import guru.david.msscbeerservice.services.BeerService;
-import guru.david.msscbeerservice.web.model.BeerDto;
-import guru.david.msscbeerservice.web.model.BeerPagedList;
-import guru.david.msscbeerservice.web.model.BeerStyleEnum;
+import guru.sfg.brewery.model.BeerDto;
+import guru.sfg.brewery.model.BeerPagedList;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.validation.Valid;
 import java.util.UUID;
 
 @RequiredArgsConstructor

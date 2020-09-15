@@ -2,7 +2,6 @@ package guru.david.msscbeerservice.bootstrap;
 
 import guru.david.msscbeerservice.domain.Beer;
 import guru.david.msscbeerservice.repositories.BeerRepository;
-import guru.david.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

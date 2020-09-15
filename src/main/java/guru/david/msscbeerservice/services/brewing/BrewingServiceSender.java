@@ -2,7 +2,7 @@ package guru.david.msscbeerservice.services.brewing;
 
 import guru.david.msscbeerservice.config.JmsConfig;
 import guru.david.msscbeerservice.domain.Beer;
-import guru.david.msscbeerservice.events.BrewBeerEvent;
+import guru.sfg.brewery.model.events.BrewBeerEvent;
 import guru.david.msscbeerservice.repositories.BeerRepository;
 import guru.david.msscbeerservice.services.inventory.BeerInventoryService;
 import guru.david.msscbeerservice.web.mappers.BeerMapper;
