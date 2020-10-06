@@ -47,6 +47,33 @@ we do that in order to not override what we have done-->
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
         </dependency>
+<!--    This dependency is needed in order to enable service discovery with eureka for the beer service-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+<!--    The following dependency enables the open feign configuration so that we can replace the way we make the requests between services-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+<!--    Dependency to bring up the configuration of the cloud service that holds the beer service props-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+<!--    This adds sleuth zipkin, which is the ependency that enables to centralize the logs-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+<!--    The following dependency enables us to configure the loggings to be produced as JSON objects,
+        so that we can process them with zipkin using logback-->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>6.3</version>
+        </dependency>
 
     </dependencies>
 
